@@ -46,6 +46,12 @@ const rolld20 = () => {
     cointossElement.textContent = Math.floor(Math.random() * 2 + 1);
   };
 
+  const sneakattack = () => {
+    const sneakAttackElement = document.getElementById("3d6result");
+    const _3d6result = Number(sneakAttackElement.textContent);
+    sneakAttackElement.textContent = Math.floor((Math.random() * 6 + 1)+(Math.random() * 6 + 1)+(Math.random() * 6 + 1));
+  };
+
 
   document.getElementById("d20").addEventListener("click", rolld20);
   document.getElementById("d100").addEventListener("click", rolld100);
@@ -55,4 +61,5 @@ const rolld20 = () => {
   document.getElementById("d6").addEventListener("click", rolld6);
   document.getElementById("d4").addEventListener("click", rolld4);
   document.getElementById("cointoss").addEventListener("click", cointoss);
+  document.getElementById("sneak").addEventListener("click", sneakattack);
   
