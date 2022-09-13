@@ -16,8 +16,7 @@ button {
   }
 
   html {
-    background: linear-gradient(to left, transparent, rgba(255, 228, 225, 0.604)),
-    url("./dnd_background_overlay2.jpg");
+    background-image: url("./dnd_background_overlay2.jpg");
     background-position: center;
     background-attachment: fixed;
     background-size: 100% 100%;
