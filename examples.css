@@ -1,0 +1,13 @@
+button {
+    background-color: rgb(255, 77, 77);
+    position: relative;
+    height: 50px;
+    width: 10%;
+    font-size: 30px;
+  }
+
+  p {
+    
+    position: relative;
+    font-size: 30px;
+  }
