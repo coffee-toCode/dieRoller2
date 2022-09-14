@@ -40,18 +40,20 @@ const rolld20 = () => {
     roll4Element.textContent = Math.floor(Math.random() * 4 + 1);
   };
 
-  const cointoss = () => {
-    const cointossElement = document.getElementById("d2result");
-    const d2result = Number(cointossElement.textContent);
-    cointossElement.textContent = Math.floor(Math.random() * 2 + 1);
-  };
-
   const sneakattack = () => {
-    const sneakAttackElement = document.getElementById("3d6result");
-    const _3d6result = Number(sneakAttackElement.textContent);
-    sneakAttackElement.textContent = Math.floor((Math.random() * 6 + 1)+(Math.random() * 6 + 1)+(Math.random() * 6 + 1));
+    const sneakAttackElement = document.getElementById("result3d6");
+    const result3d6 = sneakAttackElement.textContent;
+    let a = Math.floor(Math.random() * 6 + 1);
+    let b = Math.floor(Math.random() * 6 + 1);
+    let c = Math.floor(Math.random() * 6 + 1);
+    sneakAttackElement.textContent = a + b + c;
   };
 
+  // const cointoss = () => {
+  //   const cointossElement = document.getElementById("d2result");
+  //   const d2result = Number(cointossElement.textContent);
+  //   cointossElement.textContent = Math.floor(Math.random() * 2 + 1);
+  // };
 
   document.getElementById("d20").addEventListener("click", rolld20);
   document.getElementById("d100").addEventListener("click", rolld100);
@@ -60,6 +62,6 @@ const rolld20 = () => {
   document.getElementById("d8").addEventListener("click", rolld8);
   document.getElementById("d6").addEventListener("click", rolld6);
   document.getElementById("d4").addEventListener("click", rolld4);
-  document.getElementById("cointoss").addEventListener("click", cointoss);
+  //document.getElementById("cointoss").addEventListener("click", cointoss);
   document.getElementById("sneak").addEventListener("click", sneakattack);
   
