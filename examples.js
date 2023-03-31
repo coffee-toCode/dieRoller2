@@ -1,22 +1,30 @@
-const rollDice = (sides, resultElementId) => {
-  const resultElement = document.getElementById(resultElementId); 
-  resultElement.textContent = Math.floor(Math.random() * sides + 1); 
-}; 
+/*The code defines a function, rollDice, that takes a number of sides as a parameter and returns a random number between 1 and that number inclusive.
 
-const sneakAttack = () => { 
-  const resultElement = document.getElementById("result3d6"); 
-  let total = 0; 
-  for (let i = 0; i < 3; i++) { 
-    total += Math.floor(Math.random() * 6 + 1); 
-  } 
-  resultElement.textContent = total; 
+
+It also defines another function, sneakAttackRoll, which calls rollDice three times with 6-sided dice, adds up the results, and returns the total.
+
+
+Then an event listener is added to the "rollButton" element. When clicked, it retrieves the value of the "diceSelect" dropdown menu and the "result" element, and assigns them to diceSelect and resultElement respectively. If the selected value is "3d6", it calls sneakAttackRoll and displays the result on the page. Otherwise, it calls rollDice with the selected number of sides and displays the result on the page. */
+const rollDice = (sides) => {
+  return Math.floor(Math.random() * sides + 1);
 };
 
-document.getElementById("d20").addEventListener("click", () => rollDice(20, "d20result")); 
-document.getElementById("d100").addEventListener("click", () => rollDice(100, "d100result"));
-document.getElementById("d12").addEventListener("click", () => rollDice(12, "d12result")); 
-document.getElementById("d10").addEventListener("click", () => rollDice(10, "d10result")); 
-document.getElementById("d8").addEventListener("click", () => rollDice(8, "d8result")); 
-document.getElementById("d6").addEventListener("click", () => rollDice(6, "d6result")); 
-document.getElementById("d4").addEventListener("click", () => rollDice(4, "d4result")); 
-document.getElementById("sneak").addEventListener("click", sneakAttack);
+const sneakAttackRoll = () => {
+  let total = 0;
+  for (let i = 0; i < 3; i++) {
+    total += rollDice(6);
+  }
+  return total;
+};
+
+document.getElementById("rollButton").addEventListener("click", () => {
+  const diceSelect = document.getElementById("diceSelect");
+  const resultElement = document.getElementById("result");
+  const selectedDie = diceSelect.value;
+
+  if (selectedDie === "3d6") {
+    resultElement.textContent = sneakAttackRoll();
+  } else {
+    resultElement.textContent = rollDice(selectedDie);
+  }
+});
